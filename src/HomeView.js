@@ -6,7 +6,6 @@ import { Link } from '@reach/router';
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    // maxWidth: 500,
   },
 });
 
