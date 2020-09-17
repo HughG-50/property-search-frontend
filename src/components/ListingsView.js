@@ -18,7 +18,7 @@ const ListingsView = ({ endpointName }) => {
     };
 
     getData();
-  }, []);
+  }, [endpointName]);
 
   return (
     <React.Fragment>
