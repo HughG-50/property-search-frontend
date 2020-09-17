@@ -1,11 +1,16 @@
 import React from 'react';
+import { Router } from '@reach/router';
 import HomeView from './HomeView';
+import RydeListingsView from './RydeListingsView';
+import StrathfieldListingsView from './StrathfieldListingsView';
 
 function App() {
   return (
-    <div>
-      <HomeView />
-    </div>
+    <Router>
+      <HomeView path="/" />
+      <RydeListingsView path="ryde" />
+      <StrathfieldListingsView path="strathfield" />
+    </Router>
   );
 }
 
