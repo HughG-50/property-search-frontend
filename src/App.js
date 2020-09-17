@@ -1,15 +1,14 @@
 import React from 'react';
 import { Router } from '@reach/router';
 import HomeView from './HomeView';
-import RydeListingsView from './RydeListingsView';
-import StrathfieldListingsView from './StrathfieldListingsView';
+import ListingsView from './components/ListingsView';
 
 function App() {
   return (
     <Router>
       <HomeView path="/" />
-      <RydeListingsView path="ryde" />
-      <StrathfieldListingsView path="strathfield" />
+      <ListingsView path="ryde" endpointName="ryde" />
+      <ListingsView path="strathfield" endpointName="strathfield" />
     </Router>
   );
 }

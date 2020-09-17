@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import SimpleTable from './components/SimpleTable';
+import SimpleTable from './SimpleTable';
+import { endpointURL } from '../constants/index';
 
-const RydeListingsView = () => {
+const ListingsView = ({ endpointName }) => {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
+    const getData = () => {
+      axios
+        .get(`${endpointURL}/listings/${endpointName}`)
+        .then((res) => {
+          setSearchResults(res.data);
+        })
+        .catch((err) => console.log(err));
+    };
+
     getData();
   }, []);
-
-  const getData = () => {
-    axios
-      .get('https://murmuring-everglades-73384.herokuapp.com/listings/ryde')
-      .then((data) => {
-        setSearchResults(data);
-      })
-      .catch((err) => console.log(err));
-  };
 
   return (
     <React.Fragment>
@@ -30,4 +31,4 @@ const RydeListingsView = () => {
   );
 };
 
-export default RydeListingsView;
+export default ListingsView;
