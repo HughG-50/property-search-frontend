@@ -27,14 +27,19 @@ const HomeView = () => {
           </Typography>
         </Grid>
 
-        <Grid item xs={6} spacing={3}>
+        <Grid item xs={4} spacing={3}>
           <Typography align="center" className={classes.root}>
             <Link to="ryde">Ryde Area Listings</Link>
           </Typography>
         </Grid>
-        <Grid item xs={6} spacing={3}>
+        <Grid item xs={4} spacing={3}>
           <Typography align="center" className={classes.root}>
             <Link to="strathfield">Strathfield Area Listings</Link>
+          </Typography>
+        </Grid>
+        <Grid item xs={4} spacing={3}>
+          <Typography align="center" className={classes.root}>
+            <Link to="parramatta">East Parramatta Area Listings</Link>
           </Typography>
         </Grid>
       </Grid>
