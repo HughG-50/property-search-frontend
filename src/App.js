@@ -2,6 +2,7 @@ import React from 'react';
 import { Router } from '@reach/router';
 import HomeView from './HomeView';
 import ListingsView from './components/ListingsView';
+import './App.css';
 
 function App() {
   return (
