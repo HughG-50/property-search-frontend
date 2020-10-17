@@ -7,10 +7,18 @@ import {
   Box,
   Link,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import RydeRules from './RydeRules';
 import CouncilRules from './CouncilRules';
 import SimpleTable from './SimpleTable';
 import { endpointURL, strathfieldCouncilRules } from '../constants/index';
+
+const useStyles = makeStyles({
+  space: {
+    marginTop: 25,
+    marginBottom: 25,
+  },
+});
 
 const urlToDisplayNameMapping = {
   ryde: 'Ryde',
@@ -51,6 +59,7 @@ const councilDuplexRulesDisplay = (endpointName) => {
 };
 
 const ListingsView = ({ endpointName }) => {
+  const classes = useStyles();
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
@@ -80,9 +89,13 @@ const ListingsView = ({ endpointName }) => {
         </Typography>
         {councilDuplexRulesDisplay(endpointName)}
         {searchResults.length ? (
-          <SimpleTable rows={searchResults} />
+          <SimpleTable rows={searchResults} className={classes.space} />
         ) : (
-          <CircularProgress size={175} thickness={1} />
+          <CircularProgress
+            size={175}
+            thickness={1}
+            className={classes.space}
+          />
         )}
       </Grid>
     </Grid>

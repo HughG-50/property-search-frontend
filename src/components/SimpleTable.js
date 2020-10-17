@@ -17,21 +17,21 @@ const useStyles = makeStyles({
   },
 });
 
-const SimpleTable = ({ rows }) => {
+const SimpleTable = ({ rows, className }) => {
   const classes = useStyles();
 
   return (
     <React.Fragment>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} className={className}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Address</TableCell>
-              <TableCell align="right">Land Area (m&#178;)</TableCell>
-              <TableCell align="right">Display Price</TableCell>
-              <TableCell align="right">Agency</TableCell>
-              <TableCell align="right">Agent</TableCell>
-              <TableCell align="right">Listing</TableCell>
+              <TableCell align="left">Land Area (m&#178;)</TableCell>
+              <TableCell align="left">Display Price</TableCell>
+              <TableCell align="left">Agency</TableCell>
+              <TableCell align="left">Agent</TableCell>
+              <TableCell align="left">Listing</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -40,11 +40,11 @@ const SimpleTable = ({ rows }) => {
                 <TableCell component="th" scope="row">
                   {row.address}
                 </TableCell>
-                <TableCell align="right">{row.land_area}</TableCell>
-                <TableCell align="right">{row.display_price}</TableCell>
-                <TableCell align="right">{row.agency_name}</TableCell>
-                <TableCell align="right">{row.agent}</TableCell>
-                <TableCell align="right">
+                <TableCell align="left">{row.land_area}</TableCell>
+                <TableCell align="left">{row.display_price}</TableCell>
+                <TableCell align="left">{row.agency_name}</TableCell>
+                <TableCell align="left">{row.agent}</TableCell>
+                <TableCell align="left">
                   <Link href={row.listing_url} target="_blank">
                     {row.listing_url}
                   </Link>
