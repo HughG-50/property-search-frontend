@@ -42,7 +42,7 @@ const RydeRules = () => {
               <Box component="span" fontWeight="fontWeightBold" m={1}>
                 Frontage:
               </Box>
-              15m
+              15.2m
             </Typography>
           </Grid>
         </Grid>

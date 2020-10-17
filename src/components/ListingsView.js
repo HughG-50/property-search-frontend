@@ -79,11 +79,11 @@ const ListingsView = ({ endpointName }) => {
           {urlToDisplayNameMapping[`${endpointName}`]}
         </Typography>
         {councilDuplexRulesDisplay(endpointName)}
-        {/* {searchResults.length ? (
+        {searchResults.length ? (
           <SimpleTable rows={searchResults} />
         ) : (
           <CircularProgress size={175} thickness={1} />
-        )} */}
+        )}
       </Grid>
     </Grid>
   );
