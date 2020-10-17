@@ -20,7 +20,7 @@ const CouncilRules = ({ area, frontage, children }) => {
               </Box>
               {frontage}m
             </Typography>
-            {Boolean(children) && { children }}
+            {Boolean(children) && children}
           </Grid>
         </Grid>
       </Grid>

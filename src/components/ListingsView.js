@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Grid, CircularProgress, Typography, Box } from '@material-ui/core';
+import {
+  Grid,
+  CircularProgress,
+  Typography,
+  Box,
+  Link,
+} from '@material-ui/core';
 import RydeRules from './RydeRules';
 import CouncilRules from './CouncilRules';
 import SimpleTable from './SimpleTable';
-import { endpointURL } from '../constants/index';
+import { endpointURL, strathfieldCouncilRules } from '../constants/index';
 
 const urlToDisplayNameMapping = {
   ryde: 'Ryde',
@@ -19,7 +25,18 @@ const councilDuplexRulesDisplay = (endpointName) => {
   if (endpointName === 'ryde') {
     return <RydeRules />;
   } else if (endpointName === 'strathfield') {
-    return <CouncilRules area={600} frontage={15} />;
+    return (
+      <CouncilRules area={600} frontage={15}>
+        <Typography align="left">
+          <Box component="span" fontWeight="fontWeightBold" m={1}>
+            Link:
+          </Box>
+          <Link href={strathfieldCouncilRules} target="_blank">
+            Strathfield Developement Rules
+          </Link>
+        </Typography>
+      </CouncilRules>
+    );
   } else if (endpointName === 'parramatta') {
     return <CouncilRules area={600} frontage={15} />;
   } else if (endpointName === 'burwood') {

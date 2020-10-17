@@ -19,7 +19,6 @@ const useStyles = makeStyles({
 
 const SimpleTable = ({ rows }) => {
   const classes = useStyles();
-  const preventDefault = (event) => event.preventDefault();
 
   return (
     <React.Fragment>
@@ -46,11 +45,7 @@ const SimpleTable = ({ rows }) => {
                 <TableCell align="right">{row.agency_name}</TableCell>
                 <TableCell align="right">{row.agent}</TableCell>
                 <TableCell align="right">
-                  <Link
-                    href={row.listing_url}
-                    onClick={preventDefault}
-                    target="_blank"
-                  >
+                  <Link href={row.listing_url} target="_blank">
                     {row.listing_url}
                   </Link>
                 </TableCell>
