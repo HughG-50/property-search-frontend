@@ -1,9 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Grid from '@material-ui/core/Grid';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import { Grid, CircularProgress, Typography, Box } from '@material-ui/core';
+import RydeRules from './RydeRules';
+import CouncilRules from './CouncilRules';
 import SimpleTable from './SimpleTable';
 import { endpointURL } from '../constants/index';
+
+const urlToDisplayNameMapping = {
+  ryde: 'Ryde',
+  strathfield: 'Strathfield',
+  burwood: 'Burwood',
+  canada_bay: 'Canada Bay',
+  inner_west: 'Inner West',
+  canterbury: 'Canterbury',
+};
+
+const councilDuplexRulesDisplay = (endpointName) => {
+  if (endpointName === 'ryde') {
+    return <RydeRules />;
+  } else if (endpointName === 'strathfield') {
+    return <CouncilRules area={600} frontage={15} />;
+  } else if (endpointName === 'parramatta') {
+    return <CouncilRules area={600} frontage={15} />;
+  } else if (endpointName === 'burwood') {
+    return <CouncilRules area={600} frontage={15} />;
+  } else if (endpointName === 'canada_bay') {
+    return <CouncilRules area={600} frontage={15} />;
+  } else if (endpointName === 'inner_west') {
+    return <CouncilRules area={600} frontage={15} />;
+  } else if (endpointName === 'canterbury') {
+    return <CouncilRules area={600} frontage={15} />;
+  }
+};
 
 const ListingsView = ({ endpointName }) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -24,11 +52,21 @@ const ListingsView = ({ endpointName }) => {
   return (
     <Grid container>
       <Grid item xs={12} align="center" justify="center">
-        {searchResults.length ? (
+        <Typography
+          variant="h4"
+          align="center"
+          color="primary"
+          component="h2"
+          gutterBottom
+        >
+          {urlToDisplayNameMapping[`${endpointName}`]}
+        </Typography>
+        {councilDuplexRulesDisplay(endpointName)}
+        {/* {searchResults.length ? (
           <SimpleTable rows={searchResults} />
         ) : (
-          <CircularProgress size={200} thickness={1} />
-        )}
+          <CircularProgress size={175} thickness={1} />
+        )} */}
       </Grid>
     </Grid>
   );
