@@ -61,7 +61,6 @@ const councilDuplexRulesDisplay = (endpointName) => {
 const ListingsView = ({ endpointName }) => {
   const classes = useStyles();
   const [searchResults, setSearchResults] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const getData = () => {
@@ -70,9 +69,7 @@ const ListingsView = ({ endpointName }) => {
         .then((res) => {
           setSearchResults(res.data);
         })
-        .catch((err) => {
-          setErrorMessage(err);
-        });
+        .catch((err) => console.log(err));
     };
 
     getData();
@@ -99,9 +96,6 @@ const ListingsView = ({ endpointName }) => {
             thickness={1}
             className={classes.space}
           />
-        )}
-        {errorMessage && (
-          <Typography color="secondary">{errorMessage}</Typography>
         )}
       </Grid>
     </Grid>
